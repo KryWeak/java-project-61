@@ -3,6 +3,7 @@ plugins {
     application
     id("com.github.ben-manes.versions") version "0.51.0"
     id("org.sonarqube") version "6.0.1.5171"
+    checkstyle
 }
 
 group = "hexlet.code"
@@ -35,4 +36,10 @@ sonar {
         property("sonar.organization", "kryweak")
         property("sonar.host.url", "https://sonarcloud.io")
     }
+}
+
+checkstyle {
+    toolVersion = "10.23.1"
+    configFile = file("config/checkstyle/checkstyle.xml")
+    isShowViolations = true
 }

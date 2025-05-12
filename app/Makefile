@@ -7,3 +7,6 @@ build:
 clean:
 	./gradlew clean
 
+buildCheckstyle:
+	./gradlew checkstyleMain
+
