@@ -9,6 +9,7 @@ class App {
         System.out.print("Please enter the game number and press Enter."
                 + "\n 1 - Greet"
                 + "\n 2 - Even"
+                + "\n 3 - Calc"
                 + "\n 0 - Exit"
                 + "\n Your choice: ");
         int numGame = scanner.nextInt();
@@ -16,7 +17,7 @@ class App {
         switch (numGame) {
             case 1 -> Cli.greeting();
             case 2 -> Even.gameEven();
-
+            case 3 -> Calc.gameCalc();
 
             default -> { }
         }

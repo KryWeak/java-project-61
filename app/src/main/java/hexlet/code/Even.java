@@ -14,7 +14,7 @@ public class Even {
 
 
         for (int i = 0; i < finalCount; i++) {
-            int rundomNum = Engine.randomNumForEven();
+            int rundomNum = Engine.randomNum();
             System.out.println("\nQuestion: " + rundomNum);
             System.out.print("Your answer: ");
             String userAnswer = scanner.nextLine().trim().toLowerCase();

@@ -33,11 +33,24 @@ public class Engine {
         System.out.println("Congratulations, " + userName + "!");
     }
 
-    public static int randomNumForEven() {
+
+    public static int randomNum() {
         Random random = new Random();
         var endRandomNum = 99;
         int randomNums = random.nextInt(endRandomNum);
         return  randomNums;
 
     }
+
+    public static char randomOperation() {
+        Random random = new Random();
+        char[] operations = {'+', '-', '*'};
+        var startBound = 0;
+        var endBound = 3;
+
+        var result = operations[random.nextInt(startBound, endBound)];
+        return  result;
+
+    }
+
 }
