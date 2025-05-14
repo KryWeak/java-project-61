@@ -4,7 +4,12 @@ import hexlet.code.Engine;
 
 import java.util.Scanner;
 
-public class Calc {
+public final class Calc {
+
+    private Calc() {
+        throw new IllegalStateException("Utility class");
+    }
+
     public static void gameCalc() {
         Engine.greetingUser();
         System.out.println("What is the result of the expression?");

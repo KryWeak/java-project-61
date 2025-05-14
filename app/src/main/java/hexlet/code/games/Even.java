@@ -4,7 +4,12 @@ import hexlet.code.Engine;
 
 import java.util.Scanner;
 
-public class Even {
+public final class Even {
+
+    private Even() {
+        throw new IllegalStateException("Utility class");
+    }
+
     public static void gameEven() {
         Engine.greetingUser();
 

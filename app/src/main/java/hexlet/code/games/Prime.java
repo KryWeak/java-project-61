@@ -4,7 +4,12 @@ import hexlet.code.Engine;
 
 import java.util.Scanner;
 
-public class Prime {
+public final class Prime {
+
+    private Prime() {
+        throw new IllegalStateException("Utility class");
+    }
+
     public static void gamePrime() {
         Scanner scanner = new Scanner(System.in);
         Engine.greetingUser();

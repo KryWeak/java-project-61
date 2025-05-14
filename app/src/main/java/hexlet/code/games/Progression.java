@@ -3,7 +3,12 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import java.util.Scanner;
 
-public class Progression {
+public final class Progression {
+
+    private Progression() {
+        throw new IllegalStateException("Utility class");
+    }
+
     public static void gameProgression() {
         Scanner scanner = new Scanner(System.in);
         Engine.greetingUser();

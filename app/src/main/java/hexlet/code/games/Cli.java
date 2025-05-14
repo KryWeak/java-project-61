@@ -2,7 +2,12 @@ package hexlet.code.games;
 
 import java.util.Scanner;
 
-public class Cli {
+public final class Cli {
+
+    private  Cli() {
+        throw new IllegalStateException("Utility class");
+    }
+
 
     public static void greeting() {
         Scanner scanner = new Scanner(System.in);

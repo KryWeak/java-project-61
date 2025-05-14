@@ -4,7 +4,11 @@ import hexlet.code.Engine;
 
 import java.util.Scanner;
 
-public class GCD {
+public final class GCD {
+
+    private GCD() {
+        throw new IllegalStateException("Utility class");
+    }
 
     public static void gameGCD() {
         Engine.greetingUser();

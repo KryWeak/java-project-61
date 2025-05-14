@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 public class Engine {
     private static String userName;
+    private static Random random = new Random();
+
 
     public static void greetingUser() {
         Scanner scanner = new Scanner(System.in);
@@ -25,7 +27,7 @@ public class Engine {
     }
 
     public static void falseWord(String userWord, String trueWord) {
-        System.out.println("'" + userWord +"' is wrong answer ;(. Correct answer was '" + trueWord + "'.");
+        System.out.println("'" + userWord + "' is wrong answer ;(. Correct answer was '" + trueWord + "'.");
         System.out.println("Let's try again, " + userName + "!");
     }
 
@@ -35,26 +37,21 @@ public class Engine {
 
 
     public static int randomNum() {
-        Random random = new Random();
-        var endRandomNum = 99;
-        int randomNum = random.nextInt(endRandomNum);
-        return  randomNum;
+        int endRandomNum = 99;
+        return random.nextInt(endRandomNum);
 
     }
+
     public static int randomNum(int minNum, int maxNum) {
-        Random random = new Random();
-        int randomNum = random.nextInt(minNum, maxNum);
-        return randomNum;
+        return random.nextInt(minNum, maxNum);
+
     }
 
     public static char randomOperation() {
-        Random random = new Random();
         char[] operations = {'+', '-', '*'};
-        var startBound = 0;
-        var endBound = 3;
-
-        var result = operations[random.nextInt(startBound, endBound)];
-        return  result;
+        int startBound = 0;
+        int endBound = 3;
+        return operations[random.nextInt(startBound, endBound)];
 
     }
 

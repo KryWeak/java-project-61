@@ -10,6 +10,13 @@ import hexlet.code.games.Prime;
 import java.util.Scanner;
 
 class App {
+    private static final int CLI = 1;
+    private static final int EVEN = 2;
+    private static final int CALC = 3;
+    private static final int GCD_GAME = 4;
+    private static final int PROGRESSION = 5;
+    private static final int PRIME = 6;
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -25,14 +32,16 @@ class App {
         int numGame = scanner.nextInt();
 
         switch (numGame) {
-            case 1 -> Cli.greeting();
-            case 2 -> Even.gameEven();
-            case 3 -> Calc.gameCalc();
-            case 4 -> GCD.gameGCD();
-            case 5 -> Progression.gameProgression();
-            case 6 -> Prime.gamePrime();
+            case CLI -> Cli.greeting();
+            case EVEN -> Even.gameEven();
+            case CALC -> Calc.gameCalc();
+            case GCD_GAME -> GCD.gameGCD();
+            case PROGRESSION -> Progression.gameProgression();
+            case PRIME -> Prime.gamePrime();
 
-            default -> { }
+            default -> {
+                System.out.println("Unknown game number");
+            }
         }
 
     }
