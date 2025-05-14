@@ -39,8 +39,6 @@ public final class Prime {
             Engine.userWin();
         }
 
-
-
     }
 
     public static String checkPrime(int num) {
@@ -51,7 +49,7 @@ public final class Prime {
             return "yes";
         }
         if (num % 2 == 0) {
-            return "yes";
+            return "no";
         }
         for (int i = 3; i * i <= num; i += 2) {
             if (num % i == 0) {
