@@ -37,9 +37,14 @@ public class Engine {
     public static int randomNum() {
         Random random = new Random();
         var endRandomNum = 99;
-        int randomNums = random.nextInt(endRandomNum);
-        return  randomNums;
+        int randomNum = random.nextInt(endRandomNum);
+        return  randomNum;
 
+    }
+    public static int randomNum(int minNum, int maxNum) {
+        Random random = new Random();
+        int randomNum = random.nextInt(minNum, maxNum);
+        return randomNum;
     }
 
     public static char randomOperation() {
