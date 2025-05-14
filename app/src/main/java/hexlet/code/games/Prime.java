@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 public final class Prime {
     private static final int FINAL_COUNT = 3;
+    private static final int SMALLEST_ODD_PRIME = 3;
 
     private Prime() {
         throw new IllegalStateException("Utility class");
@@ -51,7 +52,7 @@ public final class Prime {
         if (num % 2 == 0) {
             return "no";
         }
-        for (int i = 3; i * i <= num; i += 2) {
+        for (int i = SMALLEST_ODD_PRIME; i * i <= num; i += 2) {
             if (num % i == 0) {
                 return "no";
             }
