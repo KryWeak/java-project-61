@@ -4,6 +4,11 @@ import hexlet.code.Engine;
 import java.util.Scanner;
 
 public final class Progression {
+    private static final int FINAL_COUNT = 3;
+    private static final int MIN_LENGTH_PROGRESSION = 5;
+    private static final int MAX_LENGTH_PROGRESSION = 10;
+    private static final int MIN_DIFFERENCE = 1;
+    private static final int MAX_DIFFERENCE = 10;
 
     private Progression() {
         throw new IllegalStateException("Utility class");
@@ -15,20 +20,13 @@ public final class Progression {
         System.out.println("What number is missing in the progression?");
 
         int count = 0;
-        int finalCount = 3;
-
-        int minLengthProgression = 5;
-        int maxLengthProgression = 10;
-
-        int minDifference = 1;
-        int maxDifference = 10;
 
 
-        for (int i = 0; i < finalCount; i++) {
+        for (int i = 0; i < FINAL_COUNT; i++) {
 
             int firstNum = Engine.randomNum();
-            int length = Engine.randomNum(minLengthProgression, maxLengthProgression);
-            int difference = Engine.randomNum(minDifference, maxDifference);
+            int length = Engine.randomNum(MIN_LENGTH_PROGRESSION, MAX_LENGTH_PROGRESSION);
+            int difference = Engine.randomNum(MIN_DIFFERENCE, MAX_DIFFERENCE);
             int hiddenIndex = Engine.randomNum(0, length - 1);
             int correctAnswer = firstNum + hiddenIndex * difference;
 
@@ -55,7 +53,7 @@ public final class Progression {
 
         }
 
-        if (count == finalCount) {
+        if (count == FINAL_COUNT) {
             Engine.userWin();
         }
 

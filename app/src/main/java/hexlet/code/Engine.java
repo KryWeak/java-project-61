@@ -3,8 +3,11 @@ package hexlet.code;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Engine {
+public final class Engine {
     private static String userName;
+    private static final int DEFAULT_MAX_RANDOM = 99;
+    private static final int START_BOUND = 0;
+    private static final int END_BOUND = 3;
     private static Random random = new Random();
 
     private Engine() {
@@ -41,8 +44,7 @@ public class Engine {
 
 
     public static int randomNum() {
-        int endRandomNum = 99;
-        return random.nextInt(endRandomNum);
+        return random.nextInt(DEFAULT_MAX_RANDOM);
 
     }
 
@@ -53,9 +55,7 @@ public class Engine {
 
     public static char randomOperation() {
         char[] operations = {'+', '-', '*'};
-        int startBound = 0;
-        int endBound = 3;
-        return operations[random.nextInt(startBound, endBound)];
+        return operations[random.nextInt(START_BOUND, END_BOUND)];
 
     }
 

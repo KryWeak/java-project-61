@@ -5,6 +5,7 @@ import hexlet.code.Engine;
 import java.util.Scanner;
 
 public final class Even {
+    private static final int FINAL_COUNT = 3;
 
     private Even() {
         throw new IllegalStateException("Utility class");
@@ -17,10 +18,8 @@ public final class Even {
         System.out.print("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
         var count = 0;
-        var finalCount = 3;
 
-
-        for (int i = 0; i < finalCount; i++) {
+        for (int i = 0; i < FINAL_COUNT; i++) {
             int rundomNum = Engine.randomNum();
             System.out.println("\nQuestion: " + rundomNum);
             System.out.print("Your answer: ");
@@ -42,7 +41,7 @@ public final class Even {
             }
 
         }
-        if (count == finalCount) {
+        if (count == FINAL_COUNT) {
             Engine.userWin();
         }
 

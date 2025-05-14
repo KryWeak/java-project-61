@@ -5,6 +5,7 @@ import hexlet.code.Engine;
 import java.util.Scanner;
 
 public final class Prime {
+    private static final int FINAL_COUNT = 3;
 
     private Prime() {
         throw new IllegalStateException("Utility class");
@@ -16,9 +17,8 @@ public final class Prime {
 
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
         int count = 0;
-        int finalCount = 3;
 
-        for (int i = 0; i < finalCount; i++) {
+        for (int i = 0; i < FINAL_COUNT; i++) {
             int numRandom = Engine.randomNum();
             System.out.print("Question: " + numRandom);
             String correctAnswer = checkPrime(numRandom);
@@ -35,7 +35,7 @@ public final class Prime {
 
         }
 
-        if (count == finalCount) {
+        if (count == FINAL_COUNT) {
             Engine.userWin();
         }
 

@@ -5,6 +5,7 @@ import hexlet.code.Engine;
 import java.util.Scanner;
 
 public final class GCD {
+    private static final int FINAL_COUNT = 3;
 
     private GCD() {
         throw new IllegalStateException("Utility class");
@@ -16,9 +17,8 @@ public final class GCD {
         System.out.println("Find the greatest common divisor of given numbers.");
 
         int count = 0;
-        int finalCount = 3;
 
-        for (int i = 0; i < finalCount; i++) {
+        for (int i = 0; i < FINAL_COUNT; i++) {
 
             int firstNum = Engine.randomNum();
             int secondNum = Engine.randomNum();
@@ -44,7 +44,7 @@ public final class GCD {
 
         }
 
-        if (count == finalCount) {
+        if (count == FINAL_COUNT) {
             Engine.userWin();
         }
 

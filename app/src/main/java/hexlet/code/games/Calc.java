@@ -5,6 +5,7 @@ import hexlet.code.Engine;
 import java.util.Scanner;
 
 public final class Calc {
+    private static final int FINAL_COUNT = 3;
 
     private Calc() {
         throw new IllegalStateException("Utility class");
@@ -16,9 +17,8 @@ public final class Calc {
         Scanner scanner = new Scanner(System.in);
 
         var count = 0;
-        var finalCount = 3;
 
-        for (int i = 0; i < finalCount; i++) {
+        for (int i = 0; i < FINAL_COUNT; i++) {
 
             var firstNum = Engine.randomNum();
             var secondNum = Engine.randomNum();
@@ -38,7 +38,7 @@ public final class Calc {
             }
 
         }
-        if (count == finalCount) {
+        if (count == FINAL_COUNT) {
             Engine.userWin();
         }
     }
