@@ -7,6 +7,10 @@ public class Engine {
     private static String userName;
     private static Random random = new Random();
 
+    private Engine() {
+        throw new IllegalStateException("Utility class");
+    }
+
 
     public static void greetingUser() {
         Scanner scanner = new Scanner(System.in);
