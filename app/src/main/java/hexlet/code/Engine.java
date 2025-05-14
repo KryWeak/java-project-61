@@ -25,7 +25,7 @@ public class Engine {
     }
 
     public static void falseWord(String userWord, String trueWord) {
-        System.out.println(userWord + " is wrong answer ;(. Correct answer was " + trueWord + ".");
+        System.out.println("'" + userWord +"' is wrong answer ;(. Correct answer was '" + trueWord + "'.");
         System.out.println("Let's try again, " + userName + "!");
     }
 
