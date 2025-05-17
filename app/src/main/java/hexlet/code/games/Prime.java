@@ -2,61 +2,38 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-import java.util.Scanner;
-
 public final class Prime {
-    private static final int FINAL_COUNT = 3;
+    private static final int ROUNDS = 3;
     private static final int SMALLEST_ODD_PRIME = 3;
 
-    private Prime() {
-        throw new IllegalStateException("Utility class");
-    }
-
     public static void gamePrime() {
-        Scanner scanner = new Scanner(System.in);
-        Engine.greetingUser();
+        String description = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+        String[][] questionAndCorrectAnswer = new String[ROUNDS][2];
 
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-        int count = 0;
-
-        for (int i = 0; i < FINAL_COUNT; i++) {
-            int numRandom = Engine.randomNum();
-            System.out.print("Question: " + numRandom);
-            String correctAnswer = checkPrime(numRandom);
-            System.out.print("\nYour answer: ");
-            String userAnswer = scanner.nextLine().trim().toLowerCase();
-
-            if (userAnswer.equals(correctAnswer)) {
-                Engine.trueAns();
-                count++;
-            } else {
-                Engine.falseWord(userAnswer, correctAnswer);
-                break;
-            }
-
+        for (int i = 0; i < ROUNDS; i++) {
+            int number = Engine.randomNum();
+            questionAndCorrectAnswer[i][0] = String.valueOf(number);
+            questionAndCorrectAnswer[i][1] = checkPrime(number) ? "yes" : "no";
         }
 
-        if (count == FINAL_COUNT) {
-            Engine.userWin();
-        }
-
+        Engine.game(description, questionAndCorrectAnswer);
     }
 
-    public static String checkPrime(int num) {
+    public static boolean checkPrime(int num) {
         if (num <= 1) {
-            return "no";
+            return false;
         }
         if (num == 2) {
-            return "yes";
+            return true;
         }
         if (num % 2 == 0) {
-            return "no";
+            return false;
         }
         for (int i = SMALLEST_ODD_PRIME; i * i <= num; i += 2) {
             if (num % i == 0) {
-                return "no";
+                return false;
             }
         }
-        return "yes";
+        return true;
     }
 }

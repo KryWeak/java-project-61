@@ -4,58 +4,49 @@ import hexlet.code.Engine;
 import java.util.Scanner;
 
 public final class Progression {
-    private static final int FINAL_COUNT = 3;
+    private static final int ROUNDS = 3;
     private static final int MIN_LENGTH_PROGRESSION = 5;
     private static final int MAX_LENGTH_PROGRESSION = 10;
     private static final int MIN_DIFFERENCE = 1;
     private static final int MAX_DIFFERENCE = 10;
+    private static final String DESCRIPTION = "What number is missing in the progression?";
 
     private Progression() {
         throw new IllegalStateException("Utility class");
     }
 
     public static void gameProgression() {
-        Scanner scanner = new Scanner(System.in);
-        Engine.greetingUser();
-        System.out.println("What number is missing in the progression?");
+        String[][] questionAndCorrectAnswer = new String[ROUNDS][2];
 
-        int count = 0;
-
-
-        for (int i = 0; i < FINAL_COUNT; i++) {
+        for (int i = 0; i < ROUNDS; i++) {
 
             int firstNum = Engine.randomNum();
             int length = Engine.randomNum(MIN_LENGTH_PROGRESSION, MAX_LENGTH_PROGRESSION);
             int difference = Engine.randomNum(MIN_DIFFERENCE, MAX_DIFFERENCE);
             int hiddenIndex = Engine.randomNum(0, length - 1);
-            int correctAnswer = firstNum + hiddenIndex * difference;
 
-            System.out.print("Question: ");
+            String question = "";
+            int correctAnswer = 0;
 
             for (int j = 0; j < length; j++) {
                 if (j == hiddenIndex) {
-                    System.out.print(".. ");
+                    question += "..";
+                    correctAnswer = firstNum + j * difference;
                 } else {
-                    System.out.print((firstNum + j * difference) + " ");
+                    question += (firstNum + j * difference);
+                }
+
+                if (j < length - 1) {
+                    question += " ";
                 }
             }
-            System.out.print("\nYour answer: ");
-            int userAnswer = scanner.nextInt();
 
-            if (userAnswer == correctAnswer) {
-                Engine.trueAns();
-                count++;
-            } else {
-                Engine.falseNums(userAnswer, correctAnswer);
-                break;
-            }
-
+            questionAndCorrectAnswer[i][0] = question;
+            questionAndCorrectAnswer[i][1] = String.valueOf(correctAnswer);
 
         }
 
-        if (count == FINAL_COUNT) {
-            Engine.userWin();
-        }
+        Engine.game(DESCRIPTION, questionAndCorrectAnswer);
 
     }
 }

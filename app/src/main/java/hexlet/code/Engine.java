@@ -8,12 +8,8 @@ public final class Engine {
     private static final int DEFAULT_MAX_RANDOM = 99;
     private static final int START_BOUND = 0;
     private static final int END_BOUND = 3;
+    private static final int ROUNDS = 3;
     private static Random random = new Random();
-
-    private Engine() {
-        throw new IllegalStateException("Utility class");
-    }
-
 
     public static void greetingUser() {
         Scanner scanner = new Scanner(System.in);
@@ -24,24 +20,31 @@ public final class Engine {
 
     }
 
-    public static void trueAns() {
-        System.out.println("Correct!");
-    }
+    public static void game(String description, String[][] questionAndCorrectAnswer) {
+        Scanner scanner = new Scanner(System.in);
+        greetingUser();
 
-    public static void falseNums(int  userNum, int trueNum) {
-        System.out.println(userNum + " is wrong answer ;(. Correct answer was " + trueNum + ".");
-        System.out.println("Let's try again, " + userName + "!");
-    }
+        System.out.println(description);
 
-    public static void falseWord(String userWord, String trueWord) {
-        System.out.println("'" + userWord + "' is wrong answer ;(. Correct answer was '" + trueWord + "'.");
-        System.out.println("Let's try again, " + userName + "!");
-    }
+        for (int i = 0; i < ROUNDS; i++) {
+            String question = questionAndCorrectAnswer[i][0];
+            String correctAnswer = questionAndCorrectAnswer[i][1];
 
-    public static void userWin() {
+            System.out.println("Question: " + question);
+            System.out.print("Your answer: ");
+            String userAnswer = scanner.nextLine().trim().toLowerCase();
+
+            if (userAnswer.equals(correctAnswer)) {
+                System.out.println("Correct!");
+            } else {
+                System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
+                System.out.println("Let's try again, " + userName + "!");
+                return;
+            }
+        }
+
         System.out.println("Congratulations, " + userName + "!");
     }
-
 
     public static int randomNum() {
         return random.nextInt(DEFAULT_MAX_RANDOM);

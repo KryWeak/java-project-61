@@ -5,48 +5,31 @@ import hexlet.code.Engine;
 import java.util.Scanner;
 
 public final class GCD {
-    private static final int FINAL_COUNT = 3;
-
-    private GCD() {
-        throw new IllegalStateException("Utility class");
-    }
+    private static final int ROUNDS = 3;
 
     public static void gameGCD() {
-        Engine.greetingUser();
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Find the greatest common divisor of given numbers.");
+        String description = "Find the greatest common divisor of given numbers.";
+        String[][] questionAndCorrectAnswer = new String[ROUNDS][2];
 
-        int count = 0;
+        for (int i = 0; i < ROUNDS; i++) {
+            int a = Engine.randomNum();
+            int b = Engine.randomNum();
+            int gcd = findGCD(a, b);
 
-        for (int i = 0; i < FINAL_COUNT; i++) {
-
-            int firstNum = Engine.randomNum();
-            int secondNum = Engine.randomNum();
-            System.out.println("Question: " + firstNum + " " + secondNum);
-            System.out.print("Your answer: ");
-            int userAnswer = scanner.nextInt();
-
-            while (secondNum != 0) {
-                int temp = secondNum;
-                secondNum = firstNum % secondNum;
-                firstNum = temp;
-            }
-
-            int correctAnswer = firstNum;
-
-            if (correctAnswer == userAnswer) {
-                count++;
-                Engine.trueAns();
-            } else {
-                Engine.falseNums(userAnswer, correctAnswer);
-                break;
-            }
-
+            questionAndCorrectAnswer[i][0] = a + " " + b;
+            questionAndCorrectAnswer[i][1] = String.valueOf(gcd);
         }
 
-        if (count == FINAL_COUNT) {
-            Engine.userWin();
+        Engine.game(description, questionAndCorrectAnswer);
+    }
+
+    private static int findGCD(int a, int b) {
+        while (b != 0) {
+            int tmp = b;
+            b = a % b;
+            a = tmp;
         }
+        return a;
 
     }
 }
