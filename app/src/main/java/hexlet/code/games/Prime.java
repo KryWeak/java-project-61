@@ -1,22 +1,22 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public final class Prime {
-    private static final int ROUNDS = 3;
     private static final int SMALLEST_ODD_PRIME = 3;
+    private static final String DESCRIPTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
-    public static void gamePrime() {
-        String description = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-        String[][] questionAndCorrectAnswer = new String[ROUNDS][2];
+    public static void runGame() {
+        String[][] questionAndCorrectAnswer = new String[Engine.ROUNDS][2];
 
-        for (int i = 0; i < ROUNDS; i++) {
-            int number = Engine.randomNum();
+        for (int i = 0; i < Engine.ROUNDS; i++) {
+            int number = Utils.randomNum();
             questionAndCorrectAnswer[i][0] = String.valueOf(number);
             questionAndCorrectAnswer[i][1] = checkPrime(number) ? "yes" : "no";
         }
 
-        Engine.game(description, questionAndCorrectAnswer);
+        Engine.runGame(DESCRIPTION, questionAndCorrectAnswer);
     }
 
     public static boolean checkPrime(int num) {

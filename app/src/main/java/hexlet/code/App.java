@@ -33,11 +33,11 @@ class App {
 
         switch (numGame) {
             case CLI -> Cli.greeting();
-            case EVEN -> Even.gameEven();
-            case CALC -> Calc.gameCalc();
-            case GCD_GAME -> GCD.gameGCD();
-            case PROGRESSION -> Progression.gameProgression();
-            case PRIME -> Prime.gamePrime();
+            case EVEN -> Even.runGame();
+            case CALC -> Calc.runGame();
+            case GCD_GAME -> GCD.runGame();
+            case PROGRESSION -> Progression.runGame();
+            case PRIME -> Prime.runGame();
 
             default -> {
                 System.out.println("Unknown game number");

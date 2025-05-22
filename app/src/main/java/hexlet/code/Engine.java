@@ -1,28 +1,18 @@
 package hexlet.code;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public final class Engine {
-    private static String userName;
-    private static final int DEFAULT_MAX_RANDOM = 99;
-    private static final int START_BOUND = 0;
-    private static final int END_BOUND = 3;
-    private static final int ROUNDS = 3;
-    private static Random random = new Random();
+    public static final int ROUNDS = 3;
 
-    public static void greetingUser() {
+    public static void runGame(String description, String[][] questionAndCorrectAnswer) {
         Scanner scanner = new Scanner(System.in);
+        String userName = "";
+
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
         userName = scanner.nextLine();
         System.out.println("Hello, " + userName + "!");
-
-    }
-
-    public static void game(String description, String[][] questionAndCorrectAnswer) {
-        Scanner scanner = new Scanner(System.in);
-        greetingUser();
 
         System.out.println(description);
 
@@ -47,22 +37,6 @@ public final class Engine {
         }
 
         System.out.println("Congratulations, " + userName + "!");
-    }
-
-    public static int randomNum() {
-        return random.nextInt(DEFAULT_MAX_RANDOM);
-
-    }
-
-    public static int randomNum(int minNum, int maxNum) {
-        return random.nextInt(minNum, maxNum);
-
-    }
-
-    public static char randomOperation() {
-        char[] operations = {'+', '-', '*'};
-        return operations[random.nextInt(START_BOUND, END_BOUND)];
-
     }
 
 }

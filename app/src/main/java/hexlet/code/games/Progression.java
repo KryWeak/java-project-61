@@ -1,9 +1,9 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public final class Progression {
-    private static final int ROUNDS = 3;
     private static final int MIN_LENGTH_PROGRESSION = 5;
     private static final int MAX_LENGTH_PROGRESSION = 10;
     private static final int MIN_DIFFERENCE = 1;
@@ -14,15 +14,15 @@ public final class Progression {
         throw new IllegalStateException("Utility class");
     }
 
-    public static void gameProgression() {
-        String[][] questionAndCorrectAnswer = new String[ROUNDS][2];
+    public static void runGame() {
+        String[][] questionAndCorrectAnswer = new String[Engine.ROUNDS][2];
 
-        for (int i = 0; i < ROUNDS; i++) {
+        for (int i = 0; i < Engine.ROUNDS; i++) {
 
-            int firstNum = Engine.randomNum();
-            int length = Engine.randomNum(MIN_LENGTH_PROGRESSION, MAX_LENGTH_PROGRESSION);
-            int difference = Engine.randomNum(MIN_DIFFERENCE, MAX_DIFFERENCE);
-            int hiddenIndex = Engine.randomNum(0, length - 1);
+            int firstNum = Utils.randomNum();
+            int length = Utils.randomNum(MIN_LENGTH_PROGRESSION, MAX_LENGTH_PROGRESSION);
+            int difference = Utils.randomNum(MIN_DIFFERENCE, MAX_DIFFERENCE);
+            int hiddenIndex = Utils.randomNum(0, length - 1);
 
             String question = "";
             int correctAnswer = 0;
@@ -45,7 +45,7 @@ public final class Progression {
 
         }
 
-        Engine.game(DESCRIPTION, questionAndCorrectAnswer);
+        Engine.runGame(DESCRIPTION, questionAndCorrectAnswer);
 
     }
 }
